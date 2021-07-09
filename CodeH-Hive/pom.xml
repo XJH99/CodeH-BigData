@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>CodeH-BigData</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>CodeH-Hive</artifactId>
+
+    <properties>
+        <version.hive>1.1.0</version.hive>
+        <version.commons.codec>1.10</version.commons.codec>
+        <version.phone.number.geo>1.0.8-202004</version.phone.number.geo>
+        <version.eigenbase>1.1.5</version.eigenbase>
+        <version.pentaho-aggdesigner-algorithm>5.1.5-jhyde</version.pentaho-aggdesigner-algorithm>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-exec</artifactId>
+            <version>${version.hive}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>eigenbase</groupId>
+                    <artifactId>eigenbase-properties</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.pentaho</groupId>
+                    <artifactId>pentaho-aggdesigner-algorithm</artifactId>
+                </exclusion>
+            </exclusions>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>net.hydromatic</groupId>
+            <artifactId>eigenbase-properties</artifactId>
+            <version>${version.eigenbase}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--用于编码解码的依赖，常见的编码解码工具Base64、MD5、Hex、SHA1、DES等-->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${version.commons.codec}</version>
+        </dependency>
+        <!--用于查询手机号归属地的依赖-->
+        <dependency>
+            <groupId>me.ihxq.projects</groupId>
+            <artifactId>phone-number-geo</artifactId>
+            <version>${version.phone.number.geo}</version>
+        </dependency>
+
+    </dependencies>
+
+
+</project>

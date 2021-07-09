@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>CodeH-BigData</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>CodeH-Flink-Scala</artifactId>
+
+    <!--绑定版本-->
+    <properties>
+        <version.flink>1.10.1</version.flink>
+        <version.scala>2.12</version.scala>
+        <version.flink-kafka>0.11_2.12</version.flink-kafka>
+        <version.mysql>6.0.6</version.mysql>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-scala_${version.scala}</artifactId>
+            <version>${version.flink}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-scala -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-streaming-scala_${version.scala}</artifactId>
+            <version>${version.flink}</version>
+            <!--            <scope>provided</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-kafka-${version.flink-kafka}</artifactId>
+            <version>${version.flink}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${version.mysql}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-planner_${version.scala}</artifactId>
+            <version>${version.flink}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-planner-blink_${version.scala}</artifactId>
+            <version>${version.flink}</version>
+        </dependency>
+        <!--  csv文件的依赖  -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-csv</artifactId>
+            <version>${version.flink}</version>
+        </dependency>
+        <!-- table关联jdbc依赖 -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-jdbc_${version.scala}</artifactId>
+            <version>${version.flink}</version>
+        </dependency>
+
+    </dependencies>
+
+
+</project>
