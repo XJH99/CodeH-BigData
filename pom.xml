@@ -21,6 +21,7 @@
         <module>CodeH-HBase</module>
         <module>CodeH-Flink-Demo</module>
         <module>CodeH-DataStructure</module>
+        <module>CodeH-Flink-Java</module>
     </modules>
 
     <properties>
