@@ -13,7 +13,10 @@ import org.apache.flink.streaming.api.functions.co.CoMapFunction;
  * @version 1.0
  * @className Flink_Transform_Connect
  * @date 2021/8/11 18:56
- * @description
+ * @description connect与union的区别
+ *
+ * 1.connect只能操作两个流，union可以操作多个
+ * 2.union之前两个流的类型必须是一样，connect可以不一样，在之后的coMap中再去调整成为一样的
  */
 public class Flink_Transform_Connect {
     public static void main(String[] args) throws Exception {
