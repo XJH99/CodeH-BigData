@@ -23,6 +23,8 @@ public class Flink_WaterMark {
         environment.setParallelism(1);
         // 设置事件时间
         environment.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
+        // 100毫秒生成一次watermark
+//        environment.getConfig().setAutoWatermarkInterval(100);
 
         // 读取数据
         DataStreamSource<String> source = environment.socketTextStream("192.168.214.136", 9999);
@@ -39,16 +41,21 @@ public class Flink_WaterMark {
             }
         });
 
-        DataStream<SensorReading> reduceStream = mapStream.keyBy("id")
-                .timeWindow(Time.seconds(10))
-                .reduce(new ReduceFunction<SensorReading>() {
-                    @Override
-                    public SensorReading reduce(SensorReading value1, SensorReading value2) throws Exception {
-                        return new SensorReading(value1.getId(), value2.getTimestamp(), Math.min(value1.getTemperature(), value2.getTemperature()));
-                    }
-                });
+        // 基于事件时间的开窗聚合，统计15秒内温度的最小值
+        SingleOutputStreamOperator<SensorReading> minStream = mapStream.keyBy("id")
+                .timeWindow(Time.seconds(15))
+                .minBy("temperature");
 
-        reduceStream.print();
+//        DataStream<SensorReading> reduceStream = mapStream.keyBy("id")
+//                .timeWindow(Time.seconds(10))
+//                .reduce(new ReduceFunction<SensorReading>() {
+//                    @Override
+//                    public SensorReading reduce(SensorReading value1, SensorReading value2) throws Exception {
+//                        return new SensorReading(value1.getId(), value2.getTimestamp(), Math.min(value1.getTemperature(), value2.getTemperature()));
+//                    }
+//                });
+
+        minStream.print();
 
         environment.execute("Flink_WaterMark");
     }
