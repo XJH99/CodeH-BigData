@@ -51,6 +51,12 @@
             <version>${log4j-version}</version>
             <scope>runtime</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-walkthrough-common_${scala-version}</artifactId>
+            <version>${flink-version}</version>
+        </dependency>
     </dependencies>
 
 </project>
