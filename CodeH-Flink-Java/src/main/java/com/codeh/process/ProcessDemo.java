@@ -31,7 +31,8 @@ public class ProcessDemo {
             return new SensorReading(split[0], Long.parseLong(split[1]), Double.parseDouble(split[2]));
         });
 
-        mapStream.keyBy("id")
+//        mapStream.keyBy("id") 这个返回值其实是一个Tuple类型
+        mapStream.keyBy(row -> row.getId())
                 .process(new MyProcessFunction(10))
                 .print();
 
@@ -44,7 +45,7 @@ public class ProcessDemo {
      * I:输入的类型
      * O:输出的类型
      */
-    public static class MyProcessFunction extends KeyedProcessFunction<Tuple, SensorReading, String> {
+    public static class MyProcessFunction extends KeyedProcessFunction<String, SensorReading, String> {
 
         private Integer interval;
 
