@@ -51,6 +51,18 @@
             <version>${log4j-version}</version>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-statebackend-rocksdb_${scala-version}</artifactId>
+            <version>${flink-version}</version>
+        </dependency>
+
+        <!--引入flink table依赖， 1.10版本用planner版本，1.11后面用阿里提供的blink版本-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-planner_${scala-version}</artifactId>
+            <version>${flink-version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.flink</groupId>
