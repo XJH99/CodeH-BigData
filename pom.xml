@@ -23,6 +23,7 @@
         <module>CodeH-DataStructure</module>
         <module>CodeH-Flink-Java</module>
         <module>CodeH-Scala</module>
+        <module>CodeH-JUC</module>
     </modules>
 
     <properties>
