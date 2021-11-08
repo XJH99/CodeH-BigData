@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ public class StreamDemo {
         list.stream().filter(user -> user.getId() % 2 == 0)
                 .filter(user -> user.getAge() > 23)
                 .map(user -> user.getName().toUpperCase())
-                .sorted((u1, u2) -> u2.compareTo(u1))
+                .sorted(Comparator.reverseOrder())
                 .limit(1)
                 .forEach(System.out::println);
     }
