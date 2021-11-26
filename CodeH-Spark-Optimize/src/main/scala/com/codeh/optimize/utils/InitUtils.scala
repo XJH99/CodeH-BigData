@@ -15,19 +15,11 @@ import org.apache.spark.sql.{Dataset, SaveMode, SparkSession}
  */
 object InitUtils {
   def main(args: Array[String]): Unit = {
-    System.setProperty("HADOOP_USER_NAME", "root")
+
     val sparkConf: SparkConf = new SparkConf().setAppName("init_data")
-    .setMaster("local[*]") //TODO 要打包提交集群执行，注释掉
+      .setMaster("local[*]") //TODO 要打包提交集群执行，注释掉
 
-    val spark: SparkSession = SparkSession.builder()
-      .config(sparkConf)
-      .enableHiveSupport()
-      .getOrCreate()
-
-    val sc: SparkContext = spark.sparkContext
-    // 查看dfs的端口号hdfs getconf -confKey fs.default.name
-    // 配置hdfs的访问路径
-    sc.hadoopConfiguration.set("fs.defaultFS", "hdfs://192.168.214.150:9820")
+    val spark: SparkSession = getSparkSession(sparkConf)
 
     initHiveTable(spark)
 
@@ -36,7 +28,23 @@ object InitUtils {
   }
 
   /**
+   * sparkSession初始化函数
+   * @param conf sparkConf配置文件
+   * @return
+   */
+  def getSparkSession(conf: SparkConf): SparkSession = {
+    System.setProperty("HADOOP_USER_NAME", "root")
+    val spark: SparkSession = SparkSession.builder().config(conf).enableHiveSupport().getOrCreate()
+    val sc: SparkContext = spark.sparkContext
+    // 查看dfs的端口号hdfs getconf -confKey fs.default.name
+    // 配置hdfs的访问路径
+    sc.hadoopConfiguration.set("fs.defaultFS", "hdfs://192.168.214.150:9820")
+    spark
+  }
+
+  /**
    * 数据初始化导入
+   *
    * @param spark spark环境对象
    */
   def initHiveTable(spark: SparkSession): Unit = {
