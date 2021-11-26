@@ -2,54 +2,54 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>CodeH-BigData</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>CodeH-BigData</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>CodeH-Hadoop</module>
-        <module>CodeH-Hive</module>
-        <module>CodeH-Flume</module>
-        <module>CodeH-Kafka</module>
-        <module>CodeH-ClickHouse</module>
-        <module>CodeH-Spark</module>
-        <module>CodeH-Java</module>
-        <module>CodeH-Flink-Scala</module>
-        <module>CodeH-Flink-Scala-Project</module>
-        <module>CodeH-HBase</module>
-        <module>CodeH-Flink-Demo</module>
-        <module>CodeH-DataStructure</module>
-        <module>CodeH-Flink-Java</module>
-        <module>CodeH-Scala</module>
-        <module>CodeH-JUC</module>
-        <module>CodeH-Spark-Optimize</module>
-    </modules>
+    <artifactId>CodeH-Spark-Optimize</artifactId>
 
     <properties>
-        <junit-version>4.12</junit-version>
-        <slf4j-version>1.7.30</slf4j-version>
-        <compiler-version>3.8.1</compiler-version>
-        <lombok-version>1.16.10</lombok-version>
+        <scala.binary.version>2.12</scala.binary.version>
+        <spark.version>3.0.0</spark.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
     <dependencies>
+        <!-- Spark的依赖引入 -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit-version}</version>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_${scala.binary.version}</artifactId>
+<!--            <scope>provided</scope>-->
+            <version>${spark.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j-version}</version>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_${scala.binary.version}</artifactId>
+<!--            <scope>provided</scope>-->
+            <version>${spark.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok-version}</version>
-            <scope>provided</scope>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_${scala.binary.version}</artifactId>
+<!--            <scope>provided</scope>-->
+            <version>${spark.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.47</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.46</version>
         </dependency>
     </dependencies>
 
