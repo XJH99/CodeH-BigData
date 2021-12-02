@@ -27,7 +27,7 @@ object DatasetCacheSer {
 
     ds.persist(StorageLevel.MEMORY_AND_DISK_SER)
 
-    ds.foreachPartition(row => row.foreach(item => println(item.orderid)))
+//    ds.foreachPartition(row => row.foreach(item => println(item.orderid)))
 
     spark.stop()
   }

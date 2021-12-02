@@ -25,7 +25,7 @@ object DatasetCache {
 
     ds.cache()
 
-    ds.foreachPartition(row => row.foreach(item => println(item.orderid)))
+//    ds.foreachPartition(row => row.foreach(item => println(item.orderid)))
 
     spark.stop()
 
