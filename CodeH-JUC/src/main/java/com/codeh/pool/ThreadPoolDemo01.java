@@ -3,6 +3,7 @@ package com.codeh.pool;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author jinhua.xu
@@ -20,6 +21,7 @@ public class ThreadPoolDemo01 {
 
         try {
             for (int i = 0; i < 10; i++) {
+                //TimeUnit.SECONDS.sleep(1);
                 threadPool.execute(() -> {
                     System.out.println(Thread.currentThread().getName() + "正在执行~~");
                 });
