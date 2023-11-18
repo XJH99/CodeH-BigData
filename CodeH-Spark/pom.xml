@@ -15,7 +15,6 @@
         <spark-version>3.0.0</spark-version>
         <scala-version>2.12</scala-version>
         <mysql-version>5.1.27</mysql-version>
-        <hive-version>1.2.1</hive-version>
         <jackson-version>2.10.1</jackson-version>
         <druid-version>1.1.10</druid-version>
         <scopt-version>3.7.1</scopt-version>
@@ -48,11 +47,6 @@
             <version>${spark-version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.hive</groupId>
-            <artifactId>hive-exec</artifactId>
-            <version>${hive-version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming_${scala-version}</artifactId>
             <version>${spark-version}</version>
@@ -77,6 +71,11 @@
             <groupId>com.github.scopt</groupId>
             <artifactId>scopt_${scala-version}</artifactId>
             <version>${scopt-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.3</version>
         </dependency>
     </dependencies>
 

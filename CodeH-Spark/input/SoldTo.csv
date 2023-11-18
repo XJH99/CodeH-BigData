@@ -1,0 +1,11 @@
+modifiedon,dfc_sales_skillid,dfc_city_id,dfc_countryid,dfc_customer_en_name,dfc_billing_block,dfc_invoic_type,dfc_bank_account,dfc_billing_block_reason,dfc_group_customer,dfc_ebs_groupid
+2023-05-24,001,sh,china,tom,cn,10,,reason,true,
+2023-05-24,002,,china,tom,true,10,10001,,true,001
+2023-05-24,,jx,china,tom,true,10,10001,reason,false,002
+2023-05-24,003,cq,,tom,cn,10,10001,reason,true,003
+2023-05-24,004,wh,china,jack,true,10,10001,reason,true,004
+2023-05-24,005,gz,china,,cn,11,10001,reason,true,005
+2023-05-24,006,zj,china,,cn,12,,reason,true,005
+2023-05-24,007,js,china,,cn,10,,reason,true,006
+2023-05-24,008,bj,china,tom,,10,10001,reason,true,007
+2023-05-24,009,qd,china,tom,cn,10,10001,reason,true,008

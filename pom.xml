@@ -25,6 +25,7 @@
         <module>CodeH-Scala</module>
         <module>CodeH-JUC</module>
         <module>CodeH-Spark-Optimize</module>
+        <module>CodeH-Shell</module>
     </modules>
 
     <properties>
